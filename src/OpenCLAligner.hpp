@@ -24,7 +24,7 @@
 
 #include "libmasa/libmasa.hpp"
 #include "OpenCLAlignerParameters.hpp"
-#include <CL/opencl.h>
+#include <./CL/opencl.h>
 
 #include <./vector_types.h>
 

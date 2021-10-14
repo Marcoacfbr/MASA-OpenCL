@@ -54,7 +54,7 @@ struct clDeviceProp {
 inline void __clSafeCall( cl_int err, const char *file, const int line );
 const char * clgetErrorStr(cl_int e);
 cl_mem clalloc0(cl_context context, cl_device_id device, int size);
-cl_mem clallocSeq(cl_context context, cl_device_id device, const char* data, int len, const int padding_len, char * padding_char);
+cl_mem clallocSeq(cl_context context, cl_device_id device, const char* data, int len, const int padding_len, char padding_char);
 void clprintDevProp(FILE * fp, cl_device_id deviceId);
 void clgetMemoryUsage(size_t* freeMem, size_t* totalMem=NULL);
 void clprintGPUDevices(FILE* file=stdout);

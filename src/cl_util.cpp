@@ -55,10 +55,12 @@ cl_device_id clutGetMaxGflopsDeviceId();
  *
  * @return the pointer to the GPU memory allocated for the sequence.
  */
-cl_mem clallocSeq(cl_context context, cl_device_id device, const char* data, int len, const int padding_len, char * padding_char) {
+cl_mem clallocSeq(cl_context context, cl_device_id device, const char* data, int len, const int padding_len, char padd_char) {
 
 	cl_int errNum;
 	cl_command_queue command;
+
+        char * padding_char = &padd_char;
 
 	command = clCreateCommandQueue(context, device, 0, &errNum);
 

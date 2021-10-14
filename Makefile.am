@@ -3,7 +3,7 @@ SUBDIRS = $(LIBMASA_PATH)
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 
 bin_PROGRAMS = masa-opencl
-masa_opencl_CXXFLAGS = $(CUDA_CFLAGS) $(COMMONFLAGS) -malign-double -fno-strict-aliasing  
+masa_opencl_CXXFLAGS = $(CUDA_CFLAGS) $(COMMONFLAGS) -malign-power -fno-strict-aliasing  
 masa_opencl_LDADD = $(CUDA_LIBS) $(COMMONFLAGS) ./src/OpenCLAligner.cu_o $(LIBMASA_PATH)/libmasa.a -lcuda -lcudart -lpthread -lOpenCL
 
 masa_opencl_SOURCES = \
