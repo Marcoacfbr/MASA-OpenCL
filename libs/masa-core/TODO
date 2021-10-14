@@ -1,0 +1,38 @@
+* Ajustar o número de blocos automaticamente
+* Identificar número de multiprocessors automaticamente
+* Ver bug do stage6 quando temos alinhamentos começando com gap. Ver CEREUS.rev.NC_003909.8.CEREUS00085.contig00085 (com SRA=80M?).
+* Separar o resultado (max/max_pos) do ultimo short phase em antes e depois do checkbound.
+* Arrumar edges 12 e 21, em casos onde o score==0 (alinhamento vazio)
+* Testar perfect unmatch (sw = 0 score, 0, 0).
+* erros nas comparações com edges 3-3 e resultados muito proximos de 0. ex BCEREUS_NEWBLER00009.contig00009.BCEREUS_NEWBLER00132.contig00137.fwd.txt
+* erros ao chamar --multigpu com uma gpu falhando (ex. capability nao suportada). O segundo processo trava.
+* remover endian.h (para permitir compilação no MacOS X)
+* imprimir linha de comando nos arquivos statistics.
+* validação dos arquivos fastas. Por exemplo, um arquivo multifasta deve ser recusado.
+* mensagem "Partition too long" não é intuitiva. 
+* Fazer um cálculo para evitar "Partition too big".
+* Parametros --fork e --load-column/--flush-column incompatíveis?
+* Criar parametro --silent ou --verbose para suprimir o log de progresso no stderr.
+* Estatisticas de match/mismatch/gaps não estão corretas dentro do arquivo binário (ver alinhamento do chr04)
+* Bug quando o trim está decrescente: ex: --trim=44915445,87286057,83192668,81661239 (out of memory)
+* Desalocar utilizando delete[] em vez de delete, quando houver um array alocado por new[].
+* Estudar PTX "vadd.s32.s32.s32.sat.max r1, r2, r3, c" para substituir kernel_sw.
+
+== Erros: 
+
+../masa-mic --work-dir=work.tmp --no-block-pruning --alignment-edges=11 --ram-size=9M --disk-size=15M --complement=both seqs/seq06.fasta seqs/seq07.fasta
+alinhamento do tipo '11' deveria retornar full gap.
+
+
+./cudalign --stage-3 --work-dir=./work/tmp  --reverse-complement=2  --blocks=480 --disk-size=200M --alignment-edges=22 --blocks=480 --alignment-edges=22 ./sequences/NC_003909.8.fasta ./sequences/BCEREUS_NEWBLER00107.contig00108.fasta | less
+   Talvez seja a questão da inicialização no checkbounds (h11 = 0) - talvez tenha que ser -INF
+   
+./cudalign --work-dir=./work/Job.20130414.100004.chr18/NC_000018.9.NC_006485.3.fwd    --disk-size=100G  ./sequences/NC_000018.9.fasta ./sequences/NC_006485.3.fasta
+   Falhou no estágio 3. (1,68633205,67205064,40216797  ERROR: Backtrace lost! End of matrix reached.)
+
+
+./cudalign --work-dir=./work/R09.J.fwd --trim=44811665,85958258,66654828,66686325 --disk-size=1G --max-alignments=10 --clear-n --no-block-pruning sequences/NC_000004.11.fasta sequences/NC_006471.3.fasta
+./cudalign --work-dir=./work/R09.I.rev --reverse-complement=2 --trim=64103946,64146617,44915445,87286057 --disk-size=1G --max-alignments=10 --clear-n --no-block-pruning sequences/NC_000004.11.fasta sequences/NC_006471.3.fasta
+   Erro: src/aligner/cuda/CUDAligner.cu(2471) : cutilCheckMsg() CUTIL CUDA error : Kernel execution failed : unspecified launch failure.
+
+   

@@ -1,0 +1,19 @@
+# MASA-OpenCL
+MASA-OpenCl is a MASA (https://github.com/edanssandes/MASA-Core) extension to execute sequence comparison in OpenCL devices. It requires OpenCL v1.2, and it can be adjusted to be executed in CPU or GPU devices. Is was tested on Intel and AMD CPUs, AMD and NVidia GPUs.
+
+
+# Deploy instructions
+./configure
+
+make
+
+
+# Execution instructions 
+./cudalign --help
+
+
+# References
+de Figueiredo, Marco Antonio C., F. De O. Edans, and Alba Cristina MA De Melo. "Parallel megabase dna sequence comparison with opencl." 2015 IEEE 22nd International Conference on High Performance Computing (HiPC). IEEE, 2015.
+  
+de Figueiredo Jr, Marco Antonio C., et al. "MASA-OpenCL: Parallel pruned comparison of long DNA sequences with OpenCL." Concurrency and Computation: Practice and Experience 31.11 (2019): e5039.
+  

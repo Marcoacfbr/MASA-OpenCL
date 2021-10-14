@@ -1,0 +1,7 @@
+CUDAlign is a software that is able to align DNA sequences of 
+unrestricted size with the Smith-Waterman algorithm combined 
+with Myers-Miller. It uses the NVIDIA CUDA platform for accelerating 
+the computation time. It produces the optimal alignment of 
+1 million base sequences in 45 seconds using a GTX 560 Ti. 
+For chromosomes with 33 and 47 million base pairs, CUDAlign can 
+produce the optimal alignment in less than 9 hours. 

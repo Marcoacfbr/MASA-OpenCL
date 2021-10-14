@@ -1,0 +1,45 @@
+/**
+\mainpage MASA-CUDAlign
+
+CUDAlign is an application that compares large DNA sequences using local, global or 
+semi-global exact alignment algorithms. Historically, CUDAlign was firstly 
+developed and then the MASA architecture was developed as an effort to allow 
+CUDAlign to be ported to any hardware/software architecture. To port CUDAlign 
+to any architecture, see the doxygen documentation of the MASA library 
+inside the <a href="../../libs/masa-core/doxygen/index.html"><tt>libs/libmasa</tt></a> directory.
+
+CUDAlign and its optimizations are well explained in \cite CUDALIGN:PPOPP2010 
+\cite CUDALIGN:IPDPS2011 \cite CUDALIGN:TPDS2012 
+\cite CUDALIGN:PPOPP2014 \cite CUDALIGN:CCGRID2014.
+
+
+
+\section sec_compiling Compiling MASA-CUDAlign
+
+Execute the following commands to compile MASA-CUDAlign.
+
+<tt>
+autoreconf --force --install<br>
+./configure<br>
+make
+</tt>
+
+This will create the <tt>cudalign<tt> executable.
+
+Further compilation parameters are available using <tt>./configure --help</tt>
+
+
+\section sec_executing Executing the MASA extension
+
+The most simple execution command is 
+
+<tt>./cudalign [fasta 1] [fasta 2]</tt><br> 
+
+but there are many parameters that may be necessary to use in order to obtain the desired features.
+
+See <tt>./cudalign --help</tt> to understand all the execution parameters.
+
+
+
+
+*/

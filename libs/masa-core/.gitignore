@@ -1,0 +1,14 @@
+/admin
+/autom4te.cache
+/aclocal.m4
+/config.status
+/libmasa.a
+/Makefile
+/Makefile.in
+/configure
+*.dirstamp
+*.o
+.deps
+INSTALL
+masa-cli
+config.log

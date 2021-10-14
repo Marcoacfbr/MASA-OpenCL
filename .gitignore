@@ -1,0 +1,12 @@
+/admin
+/autom4te.cache
+*/*.cu_o
+*/*.o
+/aclocal.m4
+/config.status
+/configure
+/INSTALL
+/Makefile
+/masa-opencl
+/config.log
+/Makefile.in

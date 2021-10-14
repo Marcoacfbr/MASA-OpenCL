@@ -1,0 +1,91 @@
+===========
+Compilation
+===========
+
+- Here we list some basic commands for development purposes:
+   * Reconfiguring
+     $ autoreconf --force --install
+
+   * Compiling
+     $ ./configure 
+     $ make
+
+===========
+Source Code
+===========
+
+- The main/main.cpp is the entry point of the CUDAlign. This code reads the 
+parameters using the optargs library and put all parameters in a Job object. 
+Then, the main function calls each stage (1,2,3,4,5,6) passing this Job object. 
+Stages 1,2 and 3 are run in GPU and stages 4, 5 and 6 are run in CPU. 
+The TPDS article explains each stage in detail. 
+Each stage has a source file inside a separate folder.
+
+- Note that the stage1 processes all the matrix and returns an ordered list 
+of scores (besides the optimal score, of course). For each score, the main 
+function executes all other stages (2 to 6). Inside the working directory 
+(default work.tmp), all the alignments is stored in an individual folder. 
+Also, the special rows are saved in a separate folder for each stage.
+
+- The SmithWaterman.cu contains the SmithWatermanGPU class with all the 
+GPU kernels of the cudalign. The SmithWaterman.cu code has the explanation 
+of all kernels, providing the input and output parameters. There are some 
+parameters that are both used as input and output. Many of the optimizations 
+are explained there.
+
+- The stages 1, 2 and 3 calls SmithWaterman.cu with different parameters. 
+For example, the stage1 executes SW for local alignment and stages 2 and 3 
+executes SW for semi-global alignment. All these behavior of the SW class is 
+configurable by parameters. The SmithWaterman class uses callback functions 
+to communicate with the stages. 
+
+- In the TPDS article, stage 1 was only able to retrieve local alignments. In 
+the present code, stage 1 is also able to find global and semi-global 
+alignments.
+
+- The "common" directory contains many utility classes used in the stages. 
+I will describe the main ones:
+   * Job.cpp: The class that contains the command line parameters and the 
+         file/directory names.
+   * SpecialRowReader.cpp/SpecialRowWriter.cpp: These are the classes 
+         responsible for reading and writing to the Special Rows area.
+   * BestScoreList.cpp: Responsible for maintain the list of best scores 
+         found in stage 1.
+   * CrosspointsFile.cpp: Reponsible for maintain the files with all the 
+         crosspoints.
+   * biology/*: Classes that represents the alignments and sequences in 
+         memory and in disk. The AlignmentBinaryFile.cpp is a compact way 
+         to represent an alignment in disk.
+   * buffer/*: Classes that are able to transfer data between nodes. This 
+         multigpu code is still in development.
+
+- The main headers of the code are:
+   * sw_configs.hpp: contains the parameter of Matches/Mismatches/GapOpen/GapExt.
+   * cuda_configs.hpp: defines the default number of threads and the maximum 
+         number of blocks. The number of blocks (B) is variable during execution 
+         time, but the number of threads (T) is defined during compilation time.
+
+
+====================
+Copyright in Eclipse
+====================
+
+- How to fix Copyright in Eclipse
+
+Eclipse Plugin: Eclipse Copyright Generator
+http://www.wdev91.com/update/
+http://www.wdev91.com/?p=cpw
+
+Preferences->General->Copyright
+Create new license "CUDA-GPL3" starting each line with "* "
+Header Formats->Text->C Source Files
+First line: "/**********...***" l:80
+Line Prefix: " " l:1
+Last  line: " **********...**/" l:80
+Blank line after the header: 1
+
+cudalign-core->src -> (right click) -> Apply Copyright
+cudalign-core -> CUDA-GPL3 -> Replace existing headers -> Finish
+
+
+

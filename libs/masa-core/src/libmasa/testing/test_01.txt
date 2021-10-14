@@ -1,0 +1,12 @@
+set sequence 0	sequences/NC_003064.2.fasta
+set sequence 1	sequences/NC_003064.2.fasta
+set partition 0 10000 0 10000
+test
+check score 10000 9999 9999
+check column -1 test_output/column0.bin
+check row -1 test_output/row0.bin
+ 
+ 
+ 
+ 
+ 
