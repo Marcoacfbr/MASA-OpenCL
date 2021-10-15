@@ -61,7 +61,7 @@ OpenCLAlignerParameters::OpenCLAlignerParameters() {
 	blocks = 0;
 	gpu = DETECT_FASTEST_GPU;
 
-	setArguments(long_options, USAGE, "CUDA Specific Options");
+	setArguments(long_options, USAGE, "GPU Specific Options");
 
 }
 
