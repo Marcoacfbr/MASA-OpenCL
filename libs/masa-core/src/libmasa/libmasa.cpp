@@ -192,9 +192,6 @@ FASTA FILES:            Supply two sequences in fasta format files.            \
 -h, --help              Shows this help.\n\
 -d, --work-dir=DIR      Directory used to store files produced by the stages.\n\
                            Default: "DEFAULT_WORK_DIRECTORY" \n\
---special-rows-dir=DIR  Directory used to store the special rows produced by\n\
-                           the gpu stages. The default is to use a subfolder of\n\
-                           the work directory (see --work-dir parameter).\n\
 --shared-dir=DIR        Directory used to share data between forked instances.\n\
 --wait-part=PART        Process will wait until the conclusion of --part=PART.\n\
 -c, --clear             Clears the work directory before any computation. This \n\
@@ -274,52 +271,6 @@ FASTA FILES:            Supply two sequences in fasta format files.            \
                            URL is given in some of these formats: \n\
                            file://PATH_TO_FILE \n\
                            socket://HOSTNAME:PORT \n\
---dump-blocks           Saves the result of each block in the alignment file.  \n\
---max-alignments        Maximum number of alignments to return. Default:"DEFAULT_MAX_ALIGNMENTS_STRING".\n\
-\n\
-\033[1mStage #2 Options:\033[0m\n\
--2, --stage-2           Executes only the stage #2 of algorithm, i.e., returns \n\
-                           a list of crosspoints inside the optimal alignment. \n\
-                           Special columns are stored in disk to allow the     \n\
-                           execution of the subsequent stages. The disk size   \n\
-                           available to store the special columns may be       \n\
-                           configured using the --disk-space parameter. \n\
---predicted-traceback   If there are forked processes, executes the stage #2\n\
-                           using the predicted traceback strategy.\n\
-\n\
-\033[1mStage #3 Options:\033[0m\n\
--3, --stage-3           Executes only the stage #3 of algorithm, i.e., returns \n\
-                           a bigger list of crosspoints inside the optimal     \n\
-                           alignment.\n\
-\n\
-\033[1mStage #4 Options:\033[0m\n\
--4, --stage-4           Executes only the stage #4 of algorithm, i.e., given a \n\
-                           list of coordinates of the optimal alignment,       \n\
-                           increases the number of crosspoint using            \n\
-                           Myers and Miller's algorithm, until all the         \n\
-                           partitions are smaller than the maximum partition   \n\
-                           size.\n\
---maximum-partition=SIZE \n\
-                        Defines the maximum partition size allowed as output   \n\
-                           of the stage #4. This parameter limits the size of  \n\
-                           partitions processed in stage #5. \n\
-                           Default Value: "DEFAULT_MPS_STRING" \n\
---not-orthogonal        Does not use the orthogonal execution otimization.     \n\
-\n\
-\033[1mStage #5 Options:\033[0m\n\
--5, --stage-5           Executes only the stage #5 of algorithm, i.e., given   \n\
-                           a list of coordinates of the optimal alignment,     \n\
-                           returns the full alignment (as binary output).      \n\
-\n\
-\033[1mStage #6 Options:\033[0m\n\
--6, --stage-6           Executes only the stage #6 of algorithm, i.e., given   \n\
-                           an alignment in binary format, returns the full     \n\
-                           alignment in the format defined in with the         \n\
-                           --output-format argument.\n\
---output-format=FORMAT  Selects the output format of the full alignment        \n\
-                           in stage #6. Possibile formats may be listed with   \n\
-                           the --list-formats parameter. \n\
---list-formats          Lists all the possible output formats for stage #6.    \n\
 \n\
 \n\
 "
