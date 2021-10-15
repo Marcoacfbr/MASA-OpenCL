@@ -742,7 +742,7 @@ configure:5184: gcc -o conftest -g -O2   conftest.c  >&5
 conftest.c:65:6: warning: conflicting types for built-in function 'pow' [-Wbuiltin-declaration-mismatch]
  char pow ();
       ^~~
-/tmp/ccMfmZvP.o: In function `main':
+/tmp/ccBEE5y7.o: In function `main':
 /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core/conftest.c:76: undefined reference to `pow'
 collect2: error: ld returned 1 exit status
 configure:5184: $? = 1
@@ -860,7 +860,6 @@ on voltar
 
 config.status:884: creating Makefile
 config.status:884: creating src/config.h
-config.status:1065: src/config.h is unchanged
 config.status:1113: executing depfiles commands
 
 ## ---------------- ##
