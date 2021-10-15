@@ -9,7 +9,7 @@ make
 
 
 # Execution instructions 
-./cudalign --help
+./masa-opencl --help
 
 
 # References
