@@ -5798,22 +5798,22 @@ fi
 # ------------------------------------------------------------------------------
 
 
-#for ac_header in CL/cl.h
-#do :
-#  ac_fn_c_check_header_mongrel "$LINENO" "CL/cl.h" "ac_cv_header_CL_cl_h" "$ac_includes_default"
-#if test "x$ac_cv_header_CL_cl_h" = xyes; then :
-#  cat >>confdefs.h <<_ACEOF
-##define HAVE_CL_CL_H 1
-#_ACEOF
-#
-#else
-#
-#echo "OpenCL header files not found in your system"
-#exit -1
+for ac_header in CL/cl.h
+do :
+  ac_fn_c_check_header_mongrel "$LINENO" "CL/cl.h" "ac_cv_header_CL_cl_h" "$ac_includes_default"
+if test "x$ac_cv_header_CL_cl_h" = xyes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_CL_CL_H 1
+_ACEOF
 
-#fi
+else
 
-#done
+echo "OpenCL header files not found in your system"
+exit -1
+
+fi
+
+done
 
 
 #AC_CHECK_LIB(OpenCL, clGetPlatformIDs(0,0,0), [],[

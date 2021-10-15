@@ -245,7 +245,6 @@ COMMONFLAGS = -DUNIX  -DTHREADS_COUNT=128  -m64 -O3 -Ilibs/masa-core/src
 CPP = gcc -E
 CPPFLAGS = 
 CUDA_CFLAGS = -I/usr/local/cuda/include
-LOCAL_FLAGS = -I./
 CUDA_LIBS = -L/usr/local/cuda/lib64
 CXX = g++
 CXXDEPMODE = depmode=gcc3
@@ -273,7 +272,7 @@ MAKEINFO = makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 NVCC = /usr/local/cuda/bin/nvcc
 #NVCCFLAGS += -Xptxas -dlcm=cg #disable L1 cache
-NVCCFLAGS = -I/usr/local/cuda/include -I./  --gpu-architecture=sm_30   -ftz=true -prec-sqrt=false -prec-div=false \
+NVCCFLAGS = -I/usr/local/cuda/include   --gpu-architecture=sm_30   -ftz=true -prec-sqrt=false -prec-div=false \
 	--compiler-options -fno-strict-aliasing $(COMMONFLAGS)
 OBJEXT = o
 PACKAGE = masa-opencl
@@ -289,10 +288,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 1.0.0.1000
-abs_builddir = /home/users/marcofigueiredo/MASA-OpenCL
-abs_srcdir = /home/users/marcofigueiredo/MASA-OpenCL
-abs_top_builddir = /home/users/marcofigueiredo/MASA-OpenCL
-abs_top_srcdir = /home/users/marcofigueiredo/MASA-OpenCL
+abs_builddir = /home/users/marcofigueiredo/teste/MASA-OpenCL
+abs_srcdir = /home/users/marcofigueiredo/teste/MASA-OpenCL
+abs_top_builddir = /home/users/marcofigueiredo/teste/MASA-OpenCL
+abs_top_srcdir = /home/users/marcofigueiredo/teste/MASA-OpenCL
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -312,7 +311,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/users/marcofigueiredo/MASA-OpenCL/admin/install-sh
+install_sh = ${SHELL} /home/users/marcofigueiredo/teste/MASA-OpenCL/admin/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -336,7 +335,7 @@ top_srcdir = .
 AUTOMAKE_OPTIONS = subdir-objects
 SUBDIRS = $(LIBMASA_PATH)
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
-masa_opencl_CXXFLAGS = $(CUDA_CFLAGS) $(LOCAL_FLAGS) $(COMMONFLAGS) -malign-power -fno-strict-aliasing  
+masa_opencl_CXXFLAGS = $(CUDA_CFLAGS) $(COMMONFLAGS) -malign-double -fno-strict-aliasing  
 masa_opencl_LDADD = $(CUDA_LIBS) $(COMMONFLAGS) ./src/OpenCLAligner.cu_o $(LIBMASA_PATH)/libmasa.a -lcuda -lcudart -lpthread -lOpenCL
 masa_opencl_SOURCES = \
 ./src/main.cpp \

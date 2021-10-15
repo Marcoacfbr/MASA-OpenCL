@@ -1,5 +1,5 @@
 #!/bin/bash
 git add -A .
 git commit -m %1
-git push -u origin master
+git push https://Marcoacfbr@github.com/Marcoacfbr/MASA-OpenCL.git
 

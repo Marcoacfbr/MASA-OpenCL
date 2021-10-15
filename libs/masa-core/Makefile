@@ -364,10 +364,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 4.0.0.1019
-abs_builddir = /home/users/marcofigueiredo/MASA-OpenCL/libs/masa-core
-abs_srcdir = /home/users/marcofigueiredo/MASA-OpenCL/libs/masa-core
-abs_top_builddir = /home/users/marcofigueiredo/MASA-OpenCL/libs/masa-core
-abs_top_srcdir = /home/users/marcofigueiredo/MASA-OpenCL/libs/masa-core
+abs_builddir = /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core
+abs_srcdir = /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core
+abs_top_builddir = /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core
+abs_top_srcdir = /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -387,7 +387,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/users/marcofigueiredo/MASA-OpenCL/libs/masa-core/admin/install-sh
+install_sh = ${SHELL} /home/users/marcofigueiredo/teste/MASA-OpenCL/libs/masa-core/admin/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -414,7 +414,7 @@ ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 # LIBMASA
 ###############################################################################
 lib_LIBRARIES = libmasa.a
-libmasa_a_CXXFLAGS = $(COMMONFLAGS) -malign-power -fno-strict-aliasing -fopenmp 
+libmasa_a_CXXFLAGS = $(COMMONFLAGS) -malign-double -fno-strict-aliasing -fopenmp 
 
 #bin_PROGRAMS = masa-cli
 #masa_cli_CXXFLAGS = $(COMMONFLAGS) -malign-double -fno-strict-aliasing
